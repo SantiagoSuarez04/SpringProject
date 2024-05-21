@@ -1,5 +1,6 @@
 package com.darkcode.app;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +13,7 @@ import com.darkcode.app.services.EmployeeService;
 @Controller
 public class EmployeeController {
 
-
+    @Autowired
     private EmployeeService employeeService;
 
     @GetMapping("/")
@@ -57,5 +58,8 @@ public class EmployeeController {
         employeeService.GuardarEmpleado(employee);
         return "redirect:/employees";
     }
+    @GetMapping("/editEmployee")
+    public String editarEmpleado(){
+        return null;}
     
 }

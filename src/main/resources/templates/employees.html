@@ -6,21 +6,21 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="container">    
-        <h3> Employees</h3>
-        <table border="2">
-            <tr> 
-                <!-- columnas  -->
-                <th>Employee</th>
-                <th>Email</th>
+    <h3>Lista de empleados</h3>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Correo</th>
             </tr>
-            <!-- se recorre la lista del controlador mediante un for each -->
-            <tr th:each="employee:${listEmployeeAttributes}">
-
+        </thead>
+        <tbody>
+            <tr th:each="employee : ${employeeListAttribute}">
                 <td th:text="${employee.fullname}"></td>
                 <td th:text="${employee.user_email}"></td>
             </tr>
-        </table>
-    </div>
+        </tbody>
+    </table>
+
 </body>
 </html>

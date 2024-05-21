@@ -6,21 +6,18 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="container">    
-        <h3>Products</h3>
-        <table border="1">
-            <tr> 
-                <!-- columnas  -->
-                <th>Product</th>
-                <th>Description</th>
-            </tr>
-            <!-- se recorre la lista del controlador mediante un for each -->
-            <tr th:each="product: ${productListAttributes}">
-                <!-- contenido interno -->
-                <td th:text="${product.product_name}"></td>
-                <td th:text="${product.description}"></td>
-            </tr>
-        </table>
-    </div>
+    <h3>Lista de productos</h3>
+    <table border="2">
+        <tr>
+           <th>Producto</th> 
+           <th>Categoria</th> 
+           <th>precio</th> 
+        </tr>
+        <tr th:each="product: ${productListAttribute}">
+           <td th:text="${product.product_name}"></td> 
+           <td th:text="${product.category_name}"></td> 
+           <td th:text="${product.price}"></td> 
+        </tr>
+    </table>
 </body>
 </html>

@@ -1,26 +1,22 @@
 package com.darkcode.app.domain;
-
 import lombok.Data;
 
 @Data
 public class Product {
-    private String product_name = "";
-    private String description = "";
+    private String product_name;
+    private String category_name;
+    private float price;
 
-    public Product(String product_name, String description) {
+
+    public void setProduct_name(String product_name) {
         this.product_name = product_name;
-        this.description = description;
     }
 
-    public Product() {
+    public void setCategory_name(String category_name) {
+        this.category_name = category_name;
     }
 
-    public void setProduct_name(String name){
-        this.product_name = name;
+    public void setPrice(float price) {
+        this.price = price;
     }
-
-    public void setFullname(String description){
-        this.description = description;
-    }
-
 }

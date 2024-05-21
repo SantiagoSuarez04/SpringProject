@@ -1,53 +1,44 @@
 package com.darkcode.app;
-
 import java.util.ArrayList;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import com.darkcode.app.domain.Employee;
+
+import com.darkcode.app.domain.Product;
 
 @Controller
 public class ProductController {
-    @GetMapping("/")
-    public String home(){
-        return "home";
+    @GetMapping("/product")
+    public String informacionProducto(Model model) {
+        Product product = new Product();
+        product.setProduct_name("Product 1");
+        product.setCategory_name("category 1");
+        product.setPrice(140000f);
+        model.addAttribute("productAttributes", product);
+        return "show_product";
     }
 
-    @GetMapping("/contact")
-    public String contact(){
-        return "contact";
-    }
 
-    @GetMapping("/saludo")
-    public String saludo(Model model){
-        model.addAttribute("mensaje", "Saludo");
-        return "saludo";
-    }
+    @GetMapping("/products")
+    public String listarProductos(Model model) {
+        Product product1 = new Product();
+        Product product2 = new Product();
 
-    @GetMapping("/employee")
-    public String employeeInformation(Model model){
-        Employee employee = new Employee();
-        employee.setFullname("Camilo N");
-        employee.setUser_email("camilo.nino48909@ucaldas.edu.co");
-        model.addAttribute("employeeAtributtes", employee);
-        return "employee";
-    }
+        product1.setProduct_name("P1");
+        product1.setCategory_name("C2");
+        product1.setPrice(15000f);
 
-    @GetMapping("/employees")
-    public String listEmployees(Model model){
-        Employee employee1 = new Employee();
-        Employee employee2 = new Employee();
+        product2.setProduct_name("P2");
+        product2.setCategory_name("C3");
+        product2.setPrice(19000f);
 
-        employee1.setFullname("Camilo N");
-        employee1.setUser_email("camilo.nino48909@ucaldas.edu.co");
-        employee2.setFullname("Jorge L");
-        employee2.setUser_email("jorge.lopez12@ucaldas.edu.co");
+       
+        ArrayList<Product> productos = new ArrayList<>();
+       productos.add(product1);
+       productos.add(product2);
 
-        ArrayList<Employee> employees_list = new ArrayList<>();
-        employees_list.add(employee1);
-        employees_list.add(employee2);
-
-        model.addAttribute("listEmployeeAttributes", employees_list);
-        return "employees";
+        model.addAttribute("productListAttribute", productos);
+        return "products";
     }
 }

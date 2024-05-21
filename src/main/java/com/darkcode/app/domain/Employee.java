@@ -4,23 +4,28 @@ import lombok.Data;
 
 @Data
 public class Employee {
-    private String fullname = "";
-    private String user_email = "";
+    private Long id;
+    private String fullname;
+    private String user_email;
+    
+    public Employee(){}
 
-    public Employee() {
+    public Long getId() {
+        return id;
     }
 
-    public Employee(String fullname, String user_email) {
+    public String getFullname() {
+        return fullname;
+    }
+
+    public String getUser_email() {
+        return user_email;
+    }
+
+   public void setFullname(String fullname) {
         this.fullname = fullname;
+    }
+    public void setUser_email(String user_email) {
         this.user_email = user_email;
     }
-
-    public void setUser_email(String user_email){
-        this.user_email = user_email;
-    }
-
-    public void setFullname(String name){
-        this.fullname = name;
-    }
-
 }

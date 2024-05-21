@@ -9,13 +9,5 @@ ul{
 }
 
 li{
-    padding: 10px;
-}
-
-div{
-    padding: 10px;
-}
-
-button{
-    color: red;
+    padding-right: 10px;
 }

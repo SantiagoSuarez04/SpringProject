@@ -58,8 +58,5 @@ public class EmployeeController {
         employeeService.GuardarEmpleado(employee);
         return "redirect:/employees";
     }
-    @GetMapping("/editEmployee")
-    public String editarEmpleado(){
-        return null;}
     
 }
